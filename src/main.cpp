@@ -44,6 +44,14 @@
 // inlcude roomba_walker header file
 #include "roomba_walker.hpp"
 
+/**
+ *   @brief main function for the turtlebot with walker behavior similar to
+ * roomba
+ *
+ *   @param argc  The argc
+ *   @param argv  The argv
+ *   @return int value of 0 on successful execution of function, -1 otherwise
+ */
 int main(int argc, char **argv) {
   /**
    * The ros::init() function needs to see argc and argv so that it can perform
