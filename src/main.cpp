@@ -64,7 +64,7 @@ int main(int argc, char **argv) {
    * You must call one of the versions of ros::init() before using any other
    * part of the ROS system.
    */
-  ros::init(argc, argv, "roomba_walker");
+  ros::init(argc, argv, "turtlebot_roomba_walker_node");
   // create an object of RoombaWalker class
   RoombaWalker turtlebot;
   // start the walker behavior for the robot
