@@ -128,14 +128,17 @@ void RoombaWalker::laserCallback(const sensor_msgs::LaserScan::ConstPtr &msg) {
   double tempDist_ = 10000;
   // loop through laserscan reading to find distance to collisoin and if there
   // is a threat of collision
-  for (int n : msg->ranges) {
-    if (n < minDist_) {
+  for (int n = 0; n < msg->ranges.size(); n++) {
+    if (msg->ranges[n] < minDist_) {
       isCollision_ = true;
+      collisionDist_ = msg->ranges[n];
+      return;
     }
-    if (n < tempDist_) {
-      tempDist_ = n;
+    if (msg->ranges[n] < tempDist_) {
+      tempDist_ = msg->ranges[n];
     }
   }
+  isCollision_ = false;
   collisionDist_ = tempDist_;
 }
 
