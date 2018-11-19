@@ -32,16 +32,16 @@
  *  @date 11/18/2018
  *  @version 1.0
  *
- *  @brief main file for the turtlebot displaying a walking behavior similar to
- * a roomba
+ *  @brief definition file for roomba_walker class
  *
  *  @section DESCRIPTION
  *
- *  main file to implement the walking behavior similar to a roomba robot on a
- * turtlebot
+ *  file for roomba_walker which contains the definition of RoombaWalker
+ * class
  *
  */
 
+// inlcude roomba_walker header file
 #include "roomba_walker.hpp"
 
 int main(int argc, char **argv) {
@@ -56,6 +56,10 @@ int main(int argc, char **argv) {
    * You must call one of the versions of ros::init() before using any other
    * part of the ROS system.
    */
-  ros::init(argc, argv, "talker");
+  ros::init(argc, argv, "roomba_walker");
+  // create an object of RoombaWalker class
+  RoombaWalker turtlebot;
+  // start the walker behavior for the robot
+  turtlebot.startExploration();
   return 0;
 }

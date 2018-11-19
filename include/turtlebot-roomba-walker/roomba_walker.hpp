@@ -32,7 +32,7 @@
  *  @date 11/18/2018
  *  @version 1.0
  *
- *  @brief header file for roomba_walker class
+ *  @brief header file for RoombaWalker class
  *
  *  @section DESCRIPTION
  *
@@ -59,21 +59,60 @@
  */
 class RoombaWalker {
  private:
+  /**
+   * NodeHandle is the main access point to communications with the ROS system.
+   * The first NodeHandle constructed will fully initialize this node, and the
+   * last NodeHandle destructed will close down the node.
+   */
   ros::NodeHandle nh;
+  // declare variable to hold message to be published
   geometry_msgs::Twist twistMsg_;
+  // create subscriber for laserscan topic messages
   ros::Subscriber laserScan_;
+  // create publisher to advertise messages to command motion of turtlebot
   ros::Publisher vel_;
+  // declare variable to hold fixed value of linear velocity
   double linearVel_;
+  // declare variable to hold fixed value of angular velocity
   double angularVel_;
+  // declare variable to hold distance threshold for a collision threat
   double minDist_;
+  // declare variable to check if collision threat exists
   bool isCollision_;
+  // declare variable which tells closest distance to potential collision
   double collisionDist_;
+  // declare variable to set publishing rate
   double frequency_;
 
  public:
+  /**
+   *   @brief Default constructor for RoombaWalker
+   *
+   *   @param nothing
+   *   @return nothing
+   */
   RoombaWalker();
+  /**
+   *   @brief Default destructor for RoombaWalker
+   *
+   *   @param nothing
+   *   @return nothing
+   */
   ~RoombaWalker();
+  /**
+   *   @brief callback function for to monitor collision threat based on laser
+   * scan messages
+   *
+   *   @param boost shared pointer to sensor_msgs::LaserScan
+   *   @return nothing
+   */
   void laserCallback(const sensor_msgs::LaserScan::ConstPtr &msg);
+  /**
+   *   @brief function to perform random walk exploration of the robot
+   *
+   *   @param nothing
+   *   @return nothing
+   */
   void startExploration();
 };
 
