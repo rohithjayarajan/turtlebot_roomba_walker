@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name = "record" default = "false" />
+  <arg name = "record_time" default = "30" />
+  
+  <include file = "$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+  </include>
+
+  <!-- turtlebot_roomba_walker Node -->
+  <node 
+  name = "turtlebot_roomba_walker_node"
+  type = "turtlebot_roomba_walker_node"
+  pkg = "turtlebot-roomba-walker"
+  output = "screen"
+  />
+
+  <!-- Rosbag -->
+  <node
+  name = "rosbag_record"
+  type = "record"
+  pkg = "rosbag"
+  args = "--all --output-name = $(find turtlebot-roomba-walker)/results/record.bag -x /camera/(.*) --duration = $(arg record_time)"
+  if = "$(arg record)"
+  />
+</launch>
