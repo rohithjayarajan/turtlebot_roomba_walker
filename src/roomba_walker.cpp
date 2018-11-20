@@ -45,6 +45,7 @@
 #include "roomba_walker.hpp"
 
 RoombaWalker::RoombaWalker() {
+  ROS_INFO_STREAM("Turning on the turtlebot");
   // set frequency of publishing to 15Hz
   frequency_ = 15;
   // set velocity for linear motion
@@ -130,8 +131,11 @@ void RoombaWalker::laserCallback(const sensor_msgs::LaserScan::ConstPtr &msg) {
   // is a threat of collision
   for (int n = 0; n < msg->ranges.size(); n++) {
     if (msg->ranges[n] < minDist_) {
+      ROS_WARN_STREAM("Potential collision detected");
       isCollision_ = true;
       collisionDist_ = msg->ranges[n];
+      ROS_DEBUG_STREAM("Potential collision threat in " << collisionDist_
+                                                        << "units distance");
       return;
     }
     if (msg->ranges[n] < tempDist_) {
@@ -140,6 +144,8 @@ void RoombaWalker::laserCallback(const sensor_msgs::LaserScan::ConstPtr &msg) {
   }
   isCollision_ = false;
   collisionDist_ = tempDist_;
+  ROS_DEBUG_STREAM("Potential collision threat in " << collisionDist_
+                                                    << "units distance");
 }
 
 void RoombaWalker::startExploration() {
@@ -150,9 +156,13 @@ void RoombaWalker::startExploration() {
     // it around z-axis by a value
     // else, supply only linear motion to the robot
     if (isCollision_) {
+      ROS_INFO_STREAM(
+          "Halting linear motion and imparting angular motion for collision "
+          "avoidance");
       twistMsg_.linear.x = 0.0;
       twistMsg_.angular.z = angularVel_;
     } else {
+      ROS_INFO_STREAM("No potential collision threat. Imparting linear motion");
       twistMsg_.linear.x = linearVel_;
       twistMsg_.angular.z = 0.0;
     }
