@@ -41,8 +41,8 @@
  *
  */
 
-#ifndef INCLUDE_ROOMBA_WALKER_HPP_
-#define INCLUDE_ROOMBA_WALKER_HPP_
+#ifndef INCLUDE_TURTLEBOT_ROOMBA_WALKER_ROOMBA_WALKER_HPP_
+#define INCLUDE_TURTLEBOT_ROOMBA_WALKER_ROOMBA_WALKER_HPP_
 // C++ header
 // #include <cmath>
 // #include <sstream>
@@ -116,4 +116,4 @@ class RoombaWalker {
   void startExploration();
 };
 
-#endif  // INCLUDE_ROOMBA_WALKER_HPP_
+#endif  // INCLUDE_TURTLEBOT_ROOMBA_WALKER_ROOMBA_WALKER_HPP_
