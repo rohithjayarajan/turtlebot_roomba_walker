@@ -96,7 +96,7 @@ source devel/setup.bash
 Follow the below comamnds and clone this package in the src folder of the catkin workspace 
 ```
 cd ~/catkin_ws/src/
-git clone https://github.com/rohithjayarajan/turtlebot-roomba-walker.git
+git clone https://github.com/rohithjayarajan/turtlebot_roomba_walker.git
 ```
 Follow the below comamnds to build the package
 ```
@@ -110,7 +110,7 @@ Follow the below commands in the terminal to run TurtleBot simulation which exhi
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
-roslaunch turtlebot-roomba-walker turtlebot_roomba_walker.launch record:=<true_to_enable_bagfile_recording> record_time:=<duration_of_bag_recording>
+roslaunch turtlebot_roomba_walker turtlebot_roomba_walker.launch record:=<true_to_enable_bagfile_recording> record_time:=<duration_of_bag_recording>
 ```
 
 
@@ -137,7 +137,7 @@ To record a rosbag containing all topics being published, follow the steps below
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
-roslaunch turtlebot-roomba-walker turtlebot_roomba_walker.launch record:=true
+roslaunch turtlebot_roomba_walker turtlebot_roomba_walker.launch record:=true
 ```
 BY default, the bag file will be recorded for 30 seconds. To change duration of recording time, refer to `Run Instructions` above. Press `Ctrl + C` on the terminal above to kill the nodes and Gazebo simulator.
 
@@ -148,7 +148,7 @@ Toggling the `record` parameter will enable or disable recording of a rosbag usi
 `rosbag info <your bagfile>` helps to inspect a recorded rosbag. In our case, the recorded bag file is record_all.bag. Open the terminal in the folder where the .bag file of interest is present and use the following command to inspect it:
 
 ```
-cd ~/catkin_ws/src/turtlebot-roomba-walker/results
+cd ~/catkin_ws/src/turtlebot_roomba_walker/results
 rosbag info record.bag
 ```
 
@@ -217,8 +217,8 @@ roscore
 In a new terminal, follow the below commands
 
 ```
-cd ~/catkin_ws/src/turtlebot-roomba-walker/results
-rosbag play record_all.bag
+cd ~/catkin_ws/src/turtlebot_roomba_walker/results
+rosbag play record.bag
 ```
 
 
