@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>turtlebot-roomba-walker</name>
+  <name>turtlebot_roomba_walker</name>
   <version>0.0.0</version>
   <description>The turtlebot-roomba-walker package</description>
 

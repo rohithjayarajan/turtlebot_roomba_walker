@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(turtlebot-roomba-walker)
+project(turtlebot_roomba_walker)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -105,7 +105,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES turtlebot-roomba-walker
+#  LIBRARIES turtlebot_roomba_walker
 #  CATKIN_DEPENDS roscpp rospy sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
@@ -117,13 +117,13 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
- include/turtlebot-roomba-walker
+ include/turtlebot_roomba_walker
  ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/turtlebot-roomba-walker.cpp
+#   src/${PROJECT_NAME}/turtlebot_roomba_walker.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -191,7 +191,7 @@ target_link_libraries(turtlebot_roomba_walker_node
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_turtlebot-roomba-walker.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_turtlebot_roomba_walker.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

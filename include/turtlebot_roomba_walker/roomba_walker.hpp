@@ -57,8 +57,9 @@
  *
  * Declaration of the variable and methods of RoombaWalker class
  */
-class RoombaWalker {
- private:
+class RoombaWalker
+{
+private:
   /**
    * NodeHandle is the main access point to communications with the ROS system.
    * The first NodeHandle constructed will fully initialize this node, and the
@@ -84,7 +85,7 @@ class RoombaWalker {
   // declare variable to set publishing rate
   double frequency_;
 
- public:
+public:
   /**
    *   @brief Default constructor for RoombaWalker
    *
@@ -116,4 +117,4 @@ class RoombaWalker {
   void startExploration();
 };
 
-#endif  // INCLUDE_TURTLEBOT_ROOMBA_WALKER_ROOMBA_WALKER_HPP_
+#endif // INCLUDE_TURTLEBOT_ROOMBA_WALKER_ROOMBA_WALKER_HPP_
